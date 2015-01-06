@@ -18,6 +18,9 @@ public class MyGdxGame implements ApplicationListener {
 	
 	@Override
 	public void create() {		
+		// PRUEBA DE CONFLICTO
+		System.out.println("Segunda prueba de conflicto.");
+		
 		// GIT-TEST: INSETAR NOMBRES AQUI
 		System.out.println("Jose");
 		System.out.println("Prueba");
