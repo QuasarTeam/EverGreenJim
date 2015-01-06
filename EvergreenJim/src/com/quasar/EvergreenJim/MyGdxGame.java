@@ -23,6 +23,7 @@ public class MyGdxGame implements ApplicationListener {
 		System.out.println("Prueba");
 		System.out.println("Roger");
 		System.out.println("Fred");
+		System.out.println("Angel");
 		
 		
 		//-----------
