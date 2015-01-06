@@ -30,6 +30,7 @@ public class MyGdxGame implements ApplicationListener {
 		System.out.println("Rolando");
 		System.out.println("Prueba de conflicto.");
 		System.out.println("Error2!");
+		System.out.println("Error canijo!");
 		
 		//-----------
 		float w = Gdx.graphics.getWidth();
