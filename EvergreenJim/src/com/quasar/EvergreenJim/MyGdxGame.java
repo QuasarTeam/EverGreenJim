@@ -20,7 +20,7 @@ public class MyGdxGame implements ApplicationListener {
 	public void create() {		
 		// GIT-TEST: INSETAR NOMBRES AQUI
 		System.out.println("Jose");
-		
+		System.out.println("Prueba");
 		
 		
 		//-----------
