@@ -26,7 +26,7 @@ public class MyGdxGame implements ApplicationListener {
 		System.out.println("Angel");
 		System.out.println("Rolando");
 		
-		
+		System.out.println("Esta es una prueba.");
 		//-----------
 		float w = Gdx.graphics.getWidth();
 		float h = Gdx.graphics.getHeight();
