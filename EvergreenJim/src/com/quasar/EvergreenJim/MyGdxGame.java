@@ -19,11 +19,11 @@ public class MyGdxGame implements ApplicationListener {
 	@Override
 	public void create() {		
 		// GIT-TEST: INSETAR NOMBRES AQUI
-		System.out.println("Pepe");
+		System.out.println("Jose");
 		
 		
 		
-		//
+		//-----------
 		float w = Gdx.graphics.getWidth();
 		float h = Gdx.graphics.getHeight();
 		
