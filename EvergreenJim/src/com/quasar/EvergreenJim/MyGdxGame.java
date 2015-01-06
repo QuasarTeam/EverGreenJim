@@ -21,6 +21,8 @@ public class MyGdxGame implements ApplicationListener {
 		// GIT-TEST: INSETAR NOMBRES AQUI
 		System.out.println("Jose");
 		System.out.println("Prueba");
+		System.out.println("Roger");
+		
 		
 		
 		//-----------
