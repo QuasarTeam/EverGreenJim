@@ -24,6 +24,7 @@ public class MyGdxGame implements ApplicationListener {
 		System.out.println("Roger");
 		System.out.println("Fred");
 		System.out.println("Angel");
+		System.out.println("Rolando");
 		
 		
 		//-----------
