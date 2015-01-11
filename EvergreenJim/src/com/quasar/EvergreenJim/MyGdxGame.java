@@ -36,8 +36,7 @@ public class MyGdxGame implements ApplicationListener{
 	//	Gdx.app.log("AssetPath", Gdx.files.internal("assets/square.png").file().getAbsolutePath());
 
 //		
-		texture = new Texture(Gdx.files.internal("assets/square"
-				+ ".png"));
+		texture = new Texture(Gdx.files.internal("square.png"));
 		texture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 		
 		TextureRegion region = new TextureRegion(texture, 0, 0, 512, 275);
