@@ -36,7 +36,7 @@ public class MyGdxGame implements ApplicationListener{
 		batch = new SpriteBatch();
 		
 	//	Gdx.app.log("AssetPath", Gdx.files.internal("assets/square.png").file().getAbsolutePath());
-		manager.load("square.png", Texture.class);
+	//	manager.load("square.png", Texture.class);
 ////		
 //		texture = new Texture(Gdx.files.internal("square.png"));
 //		texture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
@@ -64,11 +64,11 @@ public class MyGdxGame implements ApplicationListener{
 		Region mr2 = (Region) new MonkeyRegion().r2;
 		Region mr3 = (Region) new MonkeyRegion().r3;
 		
-		if(manager.update()) {}
-		
-			
-		System.out.println(manager.getProgress());
-		
+//		if(manager.update()) {}
+//		
+//			
+//		System.out.println(manager.getProgress());
+//		
 		
 			if(Tap.isInside(mr1)) {
 				System.out.println("Region 1");
