@@ -6,6 +6,7 @@ import Regions.Region;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -21,6 +22,7 @@ public class MyGdxGame implements ApplicationListener{
 	private Texture texture;
 	private Sprite sprite;
 	//private Monkey m;
+	AssetManager manager = new AssetManager();
 	
 	@Override
 	public void create() {		
@@ -34,17 +36,17 @@ public class MyGdxGame implements ApplicationListener{
 		batch = new SpriteBatch();
 		
 	//	Gdx.app.log("AssetPath", Gdx.files.internal("assets/square.png").file().getAbsolutePath());
-
+		manager.load("square.png", Texture.class);
+////		
+//		texture = new Texture(Gdx.files.internal("square.png"));
+//		texture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
 //		
-		texture = new Texture(Gdx.files.internal("square.png"));
-		texture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
-		
-		TextureRegion region = new TextureRegion(texture, 0, 0, 512, 275);
-		
-		sprite = new Sprite(region);
-		sprite.setSize(0.9f, 0.9f * sprite.getHeight() / sprite.getWidth());
-		sprite.setOrigin(sprite.getWidth()/2, sprite.getHeight()/2);
-		sprite.setPosition(-sprite.getWidth()/2, -sprite.getHeight()/2);
+//		TextureRegion region = new TextureRegion(texture, 0, 0, 512, 275);
+//		
+//		sprite = new Sprite(region);
+//		sprite.setSize(0.9f, 0.9f * sprite.getHeight() / sprite.getWidth());
+//		sprite.setOrigin(sprite.getWidth()/2, sprite.getHeight()/2);
+//		sprite.setPosition(-sprite.getWidth()/2, -sprite.getHeight()/2);
 	}
 
 	@Override
@@ -62,7 +64,11 @@ public class MyGdxGame implements ApplicationListener{
 		Region mr2 = (Region) new MonkeyRegion().r2;
 		Region mr3 = (Region) new MonkeyRegion().r3;
 		
+		if(manager.update()) {}
+		
 			
+		System.out.println(manager.getProgress());
+		
 		
 			if(Tap.isInside(mr1)) {
 				System.out.println("Region 1");
@@ -77,11 +83,13 @@ public class MyGdxGame implements ApplicationListener{
 				}
 			}
 			
+			
+			
 		
-		batch.setProjectionMatrix(camera.combined);
-		batch.begin();
-		//sprite.draw(batch);
-		batch.end();
+//		batch.setProjectionMatrix(camera.combined);
+//		batch.begin();
+//		//sprite.draw(batch);
+//		batch.end();
 	}
 
 	@Override
