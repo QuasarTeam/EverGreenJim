@@ -20,11 +20,12 @@ public class MyGdxGame implements ApplicationListener{
 	private SpriteBatch batch;
 	private Texture texture;
 	private Sprite sprite;
+	//private Monkey m;
 	
 	@Override
 	public void create() {		
 
-		
+		//new Monkey();
 		//-----------
 		float w = Gdx.graphics.getWidth();
 		float h = Gdx.graphics.getHeight();
@@ -32,36 +33,31 @@ public class MyGdxGame implements ApplicationListener{
 		camera = new OrthographicCamera(1, h/w);
 		batch = new SpriteBatch();
 		
-		
-		//System.out.println(Gdx.input.getX());
-		
-		
-		
-		
+	//	Gdx.app.log("AssetPath", Gdx.files.internal("assets/square.png").file().getAbsolutePath());
+
 //		
-//		texture = new Texture(Gdx.files.internal("data/libgdx.png"));
-//		texture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
-//		
-//		TextureRegion region = new TextureRegion(texture, 0, 0, 512, 275);
-//		
-//		sprite = new Sprite(region);
-//		sprite.setSize(0.9f, 0.9f * sprite.getHeight() / sprite.getWidth());
-//		sprite.setOrigin(sprite.getWidth()/2, sprite.getHeight()/2);
-//		sprite.setPosition(-sprite.getWidth()/2, -sprite.getHeight()/2);
+		texture = new Texture(Gdx.files.internal("assets/square"
+				+ ".png"));
+		texture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
+		
+		TextureRegion region = new TextureRegion(texture, 0, 0, 512, 275);
+		
+		sprite = new Sprite(region);
+		sprite.setSize(0.9f, 0.9f * sprite.getHeight() / sprite.getWidth());
+		sprite.setOrigin(sprite.getWidth()/2, sprite.getHeight()/2);
+		sprite.setPosition(-sprite.getWidth()/2, -sprite.getHeight()/2);
 	}
 
 	@Override
 	public void dispose() {
-//		batch.dispose();
-//		texture.dispose();
+		batch.dispose();
+		texture.dispose();
 	}
 
 	@Override
 	public void render() {		
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-		
-		//Gdx.input.setInputProcessor(new Tap());
 		
 		Region mr1 = (Region) new MonkeyRegion().r1;
 		Region mr2 = (Region) new MonkeyRegion().r2;
@@ -81,12 +77,8 @@ public class MyGdxGame implements ApplicationListener{
 					System.out.println("None");
 				}
 			}
+			
 		
-//		
-//		if(Gdx.input.justTouched())
-//			System.out.println(Gdx.input.getX(0) + ", " + Gdx.input.getY(0));
-//		
-//		
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
 		//sprite.draw(batch);
