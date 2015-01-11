@@ -32,14 +32,11 @@ public class MyGdxGame implements ApplicationListener{
 		camera = new OrthographicCamera();
 	    camera.setToOrtho(false, 800, 480);
 	    batch = new SpriteBatch();
-	    
 	    mr = new MonkeyRegion();
 	    
-//	    
-//	   
 	    monkey = new Rectangle();
 	    monkey.x = (mr.r3.xmax + mr.r3.xmin)/2; // 64?
-	    monkey.y = (mr.r3.ymax + mr.r3.ymin)/2; // bottom left corner of the bucket is 20 pixels above the bottom screen edge
+	    monkey.y = (mr.r3.ymax + mr.r3.ymin)/2 - 234; // Corregir esto
 	    monkey.width = 64;
 	    monkey.height = 64;
 
@@ -67,6 +64,7 @@ public class MyGdxGame implements ApplicationListener{
 		
 			if(Tap.isInside(mr1)) {
 				System.out.println("Region 1");
+				
 			}
 			else if (Tap.isInside(mr2))
 				System.out.println("Region 2");
@@ -77,6 +75,10 @@ public class MyGdxGame implements ApplicationListener{
 					System.out.println("None");
 				}
 			}
+			
+			
+			
+			
 			
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
