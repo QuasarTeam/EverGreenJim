@@ -1,20 +1,14 @@
 package com.quasar.EvergreenJim;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
-import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.math.Vector3;
-
 import Regions.MonkeyRegion;
-import Regions.MonkeyRegion.Region1;
 import Regions.Region;
 
 public class Tap {
 
 	
-	public static void getInput(InputProcessor in) {
-		
+	public static void getInput(InputProcessor in) {	
 	}
-	
 	
 	public static boolean isInside(Region r) {
 		
@@ -38,6 +32,7 @@ public class Tap {
 		
 	}
 	
+	// Los siguientes métodos identifican si se ha hecho click dentro de alguna de las regiones.
 	private static boolean monkeyR3(Region r) {
 
 			MonkeyRegion mr = new MonkeyRegion();

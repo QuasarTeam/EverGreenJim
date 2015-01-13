@@ -13,7 +13,6 @@ import com.badlogic.gdx.utils.Disposable;
 
 public class Assets implements Disposable, AssetErrorListener {
 	
-
 	public static final String TAG = Assets.class.getName();
 	public static AssetMonkey asm;
 	
@@ -21,12 +20,13 @@ public class Assets implements Disposable, AssetErrorListener {
 		asm = new AssetMonkey();
 	}
 
+	// Carga y dibuja la textura del mono.
 	public class AssetMonkey  {
 		private OrthographicCamera camera;
 		SpriteBatch batch;
 		AssetManager am;
 		Texture tex;
-		Rectangle monkey;
+		Rectangle monkey; // El rectángulo es el que se va a mover, la textura del mono va a estar dentro del rectángulo.
 		private MonkeyRegion mr;
 
 		public AssetMonkey() {
@@ -36,6 +36,7 @@ public class Assets implements Disposable, AssetErrorListener {
 			am = new AssetManager();
 			batch = new SpriteBatch();
 		    monkey = new Rectangle();
+		    // El mono aparece en el centro de la región 3.
 		    monkey.x = (mr.r3.xmax + mr.r3.xmin)/2; 
 		    monkey.y = (mr.r3.ymax + mr.r3.ymin)/2 - 234; // Corregir esto
 		    monkey.width = 64;

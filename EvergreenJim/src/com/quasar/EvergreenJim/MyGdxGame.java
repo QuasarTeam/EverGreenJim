@@ -2,13 +2,13 @@ package com.quasar.EvergreenJim;
 
 import Regions.MonkeyRegion;
 import Regions.Region;
-
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
 
 public class MyGdxGame implements ApplicationListener{
 
+	// Variables que controlan que el mono no se pueda mover mientras está en movimiento.
 	boolean monkeyCanMoveToR1;
 	boolean monkeyCanMoveToR2;
 	boolean monkeyCanMoveToR3;
@@ -19,10 +19,6 @@ public class MyGdxGame implements ApplicationListener{
 
 	    WorldRenderer.loadAssets();
 
-	    monkeyCanMoveToR1 = false;
-		monkeyCanMoveToR2 = false;
-		monkeyCanMoveToR3 = false;
-		
 	}
 
 	@Override
@@ -34,11 +30,10 @@ public class MyGdxGame implements ApplicationListener{
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		
-		// TODO: Mover esto al WorldController.java
+		// Ejemplo: mr1 significia monkey region 1
 		Region mr1 = (Region) new MonkeyRegion().r1;
 		Region mr2 = (Region) new MonkeyRegion().r2;
 		Region mr3 = (Region) new MonkeyRegion().r3;
-		
 		
 			if(Tap.isInside(mr1)) {
 				monkeyCanMoveToR1 = true;
@@ -62,9 +57,15 @@ public class MyGdxGame implements ApplicationListener{
 				System.out.println("Region 3");
 			}
 			
-			if (monkeyCanMoveToR1 == true) Monkey.move(mr1);
-			if (monkeyCanMoveToR2 == true) Monkey.move(mr2);
-			if (monkeyCanMoveToR3 == true) Monkey.move(mr3);
+			if (monkeyCanMoveToR1 == true)  {
+				Monkey.move(mr1);
+			}
+			if (monkeyCanMoveToR2 == true) {
+				Monkey.move(mr2);
+			}
+			if (monkeyCanMoveToR3 == true) {
+				Monkey.move(mr3);
+			}
 			
 			 WorldRenderer.update();
 
