@@ -21,7 +21,8 @@ public class Monkey {
 		}
 
 		if (mr instanceof MonkeyRegion.Region2) {
-			if ((Assets.asm.monkey.y < Gdx.graphics.getHeight() - Gdx.graphics.getHeight() / 3)) {
+			if ((Assets.asm.monkey.y < Gdx.graphics.getHeight()
+					- Gdx.graphics.getHeight() / 3)) {
 				Assets.asm.monkey.y += 500 * Gdx.graphics.getDeltaTime();
 			}
 

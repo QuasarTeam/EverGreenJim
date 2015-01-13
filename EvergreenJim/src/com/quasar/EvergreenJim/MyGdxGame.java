@@ -34,7 +34,7 @@ public class MyGdxGame implements ApplicationListener{
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		
-		
+		// TODO: Mover esto al WorldController.java
 		Region mr1 = (Region) new MonkeyRegion().r1;
 		Region mr2 = (Region) new MonkeyRegion().r2;
 		Region mr3 = (Region) new MonkeyRegion().r3;
