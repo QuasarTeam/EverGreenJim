@@ -7,7 +7,8 @@ static Assets.AssetMonkey asm;
 
 	
 	public static void loadAssets() {
-		asm = new Assets().am;
+		new Assets();
+		asm = Assets.asm;
 		asm.load();
 	}
 	
