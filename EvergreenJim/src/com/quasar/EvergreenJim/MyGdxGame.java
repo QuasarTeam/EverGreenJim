@@ -24,26 +24,26 @@ public class MyGdxGame implements ApplicationListener{
 	
 	@Override
 	public void create() {		
-		camera = new OrthographicCamera();
-	    camera.setToOrtho(false, 800, 480);
+//		camera = new OrthographicCamera();
+//	    camera.setToOrtho(false, 800, 480);
 	    WorldRenderer.loadAssets();
-//		texture = new Texture(Gdx.files.internal("test.png"));
+		texture = new Texture(Gdx.files.internal("test.png"));
 
-//	    batch = new SpriteBatch();
-//	    mr = new MonkeyRegion();
-//	    
-//	    monkey = new Rectangle();
-//	    monkey.x = (mr.r3.xmax + mr.r3.xmin)/2; // 64?
-//	    monkey.y = (mr.r3.ymax + mr.r3.ymin)/2 - 234; // Corregir esto
-//	    monkey.width = 64;
-//	    monkey.height = 64;
-//	    inpos = true;
+	    batch = new SpriteBatch();
+	    mr = new MonkeyRegion();
+	    
+	    monkey = new Rectangle();
+	    monkey.x = (mr.r3.xmax + mr.r3.xmin)/2; // 64?
+	    monkey.y = (mr.r3.ymax + mr.r3.ymin)/2 - 234; // Corregir esto
+	    monkey.width = 64;
+	    monkey.height = 64;
+	    inpos = true;
 	}
 
 	@Override
 	public void dispose() {
-//		batch.dispose();
-//		texture.dispose();
+		batch.dispose();
+		texture.dispose();
 	}
 
 	@Override
@@ -51,8 +51,8 @@ public class MyGdxGame implements ApplicationListener{
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		
-		camera.update();
-		//batch.setProjectionMatrix(camera.combined);
+//		camera.update();
+//		batch.setProjectionMatrix(camera.combined);
 		
 //		Region mr1 = (Region) new MonkeyRegion().r1;
 //		Region mr2 = (Region) new MonkeyRegion().r2;
@@ -89,14 +89,13 @@ public class MyGdxGame implements ApplicationListener{
 			 
 			 WorldRenderer.update();
 
-			 System.out.println("hello");
-//			 
+			 
 //		batch.setProjectionMatrix(camera.combined);
 //		batch.begin();
 //	    batch.draw(texture, monkey.x, monkey.y);
 //		batch.end();
-//		
-//		
+		
+	
 		
 		
 	}
