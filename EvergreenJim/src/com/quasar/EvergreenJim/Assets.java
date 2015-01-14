@@ -14,8 +14,10 @@ public class Assets {
 	
 	public static final String TAG = Assets.class.getName();
 	public static AssetMonkey asm;
+	public static AssetTree ast;
 	
-	public Assets() {
+	public Assets() {		
+		ast = new AssetTree();
 		asm = new AssetMonkey();
 	}
 
@@ -55,6 +57,39 @@ public class Assets {
 			batch.draw(tex, monkey.x, monkey.y);
 			batch.end();
 		}
+	}
+
+
+	public class AssetTree {
+		private OrthographicCamera camera;
+		SpriteBatch batch;
+		Texture tex;
+		Rectangle tree; // El rectángulo es el que se va a mover, la textura del mono va a estar dentro del rectángulo.
+		private TreeRegion tr;
+		
+		public AssetTree() {
+			camera = new OrthographicCamera();
+			tr = new TreeRegion();
+			batch = new SpriteBatch();
+		    tree = new Rectangle();
+		    // El mono aparece en el centro de la región 3.
+		    tree.x = 32; 
+		    tree.y = 0; // Corregir esto
+
+		}
+		void load() {
+
+		    camera.setToOrtho(false, 800, 480);
+			tex = new Texture(Gdx.files.internal("tree.png"));
+		}
+
+		public void render() {
+			batch.setProjectionMatrix(camera.combined);
+			batch.begin();
+			batch.draw(tex, tree.x, tree.y);
+			batch.end();
+		}
+
 	}
 
 

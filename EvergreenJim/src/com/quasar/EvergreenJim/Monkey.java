@@ -6,6 +6,8 @@ import Regions.Region;
 
 public class Monkey {
 
+	static int position;
+	
 	public Monkey() {
 	}
 
@@ -17,6 +19,8 @@ public class Monkey {
 			if ((Assets.asm.monkey.y < Gdx.graphics.getHeight() + 50)) { // Modificar coordenada, 50??
 				Assets.asm.monkey.y += Constants.MID_SPEED * Gdx.graphics.getDeltaTime();
 			}
+			
+			position = 1;
 		}
 
 		if (tr instanceof TreeRegion.Region2) {
@@ -29,13 +33,31 @@ public class Monkey {
 				Assets.asm.monkey.y -= Constants.MID_SPEED * Gdx.graphics.getDeltaTime();
 			}
 
+			position = 2;
 		}
 
 		if (tr instanceof TreeRegion.Region3) {
 			if ((Assets.asm.monkey.y > Gdx.graphics.getWidth() / 15)) {
 				Assets.asm.monkey.y -= Constants.MID_SPEED * Gdx.graphics.getDeltaTime();
 			}
+			
+			position = 3;
 		}
 	}
+	
+	
+	public int getCurrentPosition() {
+		switch(position) {
+			case 1: return 1;
+			case 2: return 2;
+			case 3: return 3;
+			default: return 0;
+		}
+		
+	}
+	
+	
+	
+	
 
 }

@@ -2,8 +2,10 @@ package com.quasar.EvergreenJim;
 
 import Regions.TreeRegion;
 import Regions.Region;
+
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.GL10;
 
 public class MyGdxGame implements ApplicationListener{
@@ -69,6 +71,10 @@ public class MyGdxGame implements ApplicationListener{
 			
 			 WorldRenderer.update();
 
+			 if(Gdx.input.isKeyPressed(Keys.A)) {
+				 System.out.println(Monkey.position);
+			 }
+			 
 	}
 
 	@Override
