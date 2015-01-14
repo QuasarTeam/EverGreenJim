@@ -3,15 +3,14 @@ package com.quasar.EvergreenJim;
 import Regions.MonkeyRegion;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.assets.AssetErrorListener;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.utils.Disposable;
 
-public class Assets implements Disposable, AssetErrorListener {
+// Implementa disposable y asseterrorlistener
+public class Assets {
 	
 	public static final String TAG = Assets.class.getName();
 	public static AssetMonkey asm;
@@ -58,16 +57,6 @@ public class Assets implements Disposable, AssetErrorListener {
 		}
 	}
 
-	@Override
-	public void error(String fileName, Class type, Throwable throwable) {
-		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public void dispose() {
-		// TODO Auto-generated method stub
-
-	}
 
 }
