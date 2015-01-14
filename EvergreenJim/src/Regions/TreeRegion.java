@@ -2,7 +2,7 @@ package Regions;
 
 import com.badlogic.gdx.Gdx;
 
-public class MonkeyRegion implements Region {
+public class TreeRegion implements Region {
 
 	// Variables para acceder a las clases Resgion1, Region2 ... desde afuera
 	// ¿Son necesarias o se puede acceder a tales clases directamente?

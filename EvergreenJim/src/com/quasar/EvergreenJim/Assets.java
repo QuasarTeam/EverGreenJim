@@ -1,6 +1,6 @@
 package com.quasar.EvergreenJim;
 
-import Regions.MonkeyRegion;
+import Regions.TreeRegion;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
@@ -26,18 +26,18 @@ public class Assets {
 		AssetManager am;
 		Texture tex;
 		Rectangle monkey; // El rectángulo es el que se va a mover, la textura del mono va a estar dentro del rectángulo.
-		private MonkeyRegion mr;
+		private TreeRegion tr;
 
 		public AssetMonkey() {
 
 			camera = new OrthographicCamera();
-			mr = new MonkeyRegion();
+			tr = new TreeRegion();
 			am = new AssetManager();
 			batch = new SpriteBatch();
 		    monkey = new Rectangle();
 		    // El mono aparece en el centro de la región 3.
-		    monkey.x = (mr.r3.xmax + mr.r3.xmin)/2; 
-		    monkey.y = (mr.r3.ymax + mr.r3.ymin)/2 - 234; // Corregir esto
+		    monkey.x = (tr.r3.xmax + tr.r3.xmin)/2; 
+		    monkey.y = (tr.r3.ymax + tr.r3.ymin)/2 - 234; // Corregir esto
 		    monkey.width = 64;
 		    monkey.height = 64;
 		}

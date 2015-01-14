@@ -1,7 +1,7 @@
 package com.quasar.EvergreenJim;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
-import Regions.MonkeyRegion;
+import Regions.TreeRegion;
 import Regions.Region;
 
 public class Tap {
@@ -12,17 +12,17 @@ public class Tap {
 	
 	public static boolean isInside(Region r) {
 		
-		if (r instanceof MonkeyRegion.Region1) {
+		if (r instanceof TreeRegion.Region1) {
 
 			return monkeyR1(r);
 		}
 		
-		if (r instanceof MonkeyRegion.Region2) {
+		if (r instanceof TreeRegion.Region2) {
 
 			return monkeyR2(r);
 		}
 		
-		if (r instanceof MonkeyRegion.Region3) {
+		if (r instanceof TreeRegion.Region3) {
 
 			return monkeyR3(r);
 		}
@@ -35,11 +35,11 @@ public class Tap {
 	// Los siguientes métodos identifican si se ha hecho click dentro de alguna de las regiones.
 	private static boolean monkeyR3(Region r) {
 
-			MonkeyRegion mr = new MonkeyRegion();
+			TreeRegion tr = new TreeRegion();
 
 			if(Gdx.input.justTouched()) {
-				if ((Gdx.input.getX() > mr.r3.xmin && Gdx.input.getX() < mr.r3.xmax)
-						&& (Gdx.input.getY() > mr.r3.ymin && Gdx.input.getY() < mr.r3.ymax)) {
+				if ((Gdx.input.getX() > tr.r3.xmin && Gdx.input.getX() < tr.r3.xmax)
+						&& (Gdx.input.getY() > tr.r3.ymin && Gdx.input.getY() < tr.r3.ymax)) {
 					return true;
 				} else
 					return false;
@@ -49,11 +49,11 @@ public class Tap {
 
 	private static boolean monkeyR2(Region r) {
 		
-			MonkeyRegion mr = new MonkeyRegion();
+			TreeRegion tr = new TreeRegion();
 
 			if(Gdx.input.justTouched()) {
-				if ((Gdx.input.getX() > mr.r2.xmin && Gdx.input.getX() < mr.r2.xmax)
-						&& (Gdx.input.getY() > mr.r2.ymin && Gdx.input.getY() < mr.r2.ymax)) {
+				if ((Gdx.input.getX() > tr.r2.xmin && Gdx.input.getX() < tr.r2.xmax)
+						&& (Gdx.input.getY() > tr.r2.ymin && Gdx.input.getY() < tr.r2.ymax)) {
 					return true;
 				} else
 					return false;
@@ -63,11 +63,11 @@ public class Tap {
 
 	private static boolean monkeyR1(Region r) {
 	
-		MonkeyRegion mr = new MonkeyRegion();
+		TreeRegion tr = new TreeRegion();
 
 		if(Gdx.input.justTouched()) { 
-			if ((Gdx.input.getX(0) > mr.r1.xmin && Gdx.input.getX(0) < mr.r1.xmax)
-					&& (Gdx.input.getY(0) > mr.r1.ymin && Gdx.input.getY(0) < mr.r1.ymax)) {
+			if ((Gdx.input.getX(0) > tr.r1.xmin && Gdx.input.getX(0) < tr.r1.xmax)
+					&& (Gdx.input.getY(0) > tr.r1.ymin && Gdx.input.getY(0) < tr.r1.ymax)) {
 				return true;
 			} else
 				return false;

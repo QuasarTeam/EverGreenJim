@@ -1,6 +1,6 @@
 package com.quasar.EvergreenJim;
 
-import Regions.MonkeyRegion;
+import Regions.TreeRegion;
 import Regions.Region;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
@@ -31,25 +31,25 @@ public class MyGdxGame implements ApplicationListener{
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		
 		// Ejemplo: mr1 significia monkey region 1
-		Region mr1 = (Region) new MonkeyRegion().r1;
-		Region mr2 = (Region) new MonkeyRegion().r2;
-		Region mr3 = (Region) new MonkeyRegion().r3;
+		Region tr1 = (Region) new TreeRegion().r1;
+		Region tr2 = (Region) new TreeRegion().r2;
+		Region tr3 = (Region) new TreeRegion().r3;
 		
-			if(Tap.isInside(mr1)) {
+			if(Tap.isInside(tr1)) {
 				monkeyCanMoveToR1 = true;
 				monkeyCanMoveToR2 = false;
 				monkeyCanMoveToR3 = false;
 		       
 				System.out.println("Region 1");
 					
-			} else if (Tap.isInside(mr2)) {
+			} else if (Tap.isInside(tr2)) {
 
 				monkeyCanMoveToR2 = true;
 				monkeyCanMoveToR1 = false;
 				monkeyCanMoveToR3 = false;
 				System.out.println("Region 2");
 				
-			} else if (Tap.isInside(mr3)) {
+			} else if (Tap.isInside(tr3)) {
 
 				monkeyCanMoveToR3 = true;
 				monkeyCanMoveToR1 = false;
@@ -58,13 +58,13 @@ public class MyGdxGame implements ApplicationListener{
 			}
 			
 			if (monkeyCanMoveToR1 == true)  {
-				Monkey.move(mr1);
+				Monkey.move(tr1);
 			}
 			if (monkeyCanMoveToR2 == true) {
-				Monkey.move(mr2);
+				Monkey.move(tr2);
 			}
 			if (monkeyCanMoveToR3 == true) {
-				Monkey.move(mr3);
+				Monkey.move(tr3);
 			}
 			
 			 WorldRenderer.update();
