@@ -9,25 +9,26 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 
-// Implementa disposable y asseterrorlistener
 public class Assets {
-	
+	TreeRegion tr;
 	public static final String TAG = Assets.class.getName();
-	public static AssetMonkey asm;
 	public static AssetTree ast;
-	
-	public Assets() {		
+	public static AssetMonkey asm;
+
+	public Assets() {
+		tr = new TreeRegion();
 		ast = new AssetTree();
 		asm = new AssetMonkey();
 	}
 
 	// Carga y dibuja la textura del mono.
-	public class AssetMonkey  {
+	public class AssetMonkey {
 		private OrthographicCamera camera;
 		SpriteBatch batch;
 		AssetManager am;
 		Texture tex;
-		Rectangle monkey; // El rectángulo es el que se va a mover, la textura del mono va a estar dentro del rectángulo.
+		Rectangle monkey; // El rectángulo es el que se va a mover, la textura
+							// del mono va a estar dentro del rectángulo.
 		private TreeRegion tr;
 
 		public AssetMonkey() {
@@ -36,17 +37,17 @@ public class Assets {
 			tr = new TreeRegion();
 			am = new AssetManager();
 			batch = new SpriteBatch();
-		    monkey = new Rectangle();
-		    // El mono aparece en el centro de la región 3.
-		    monkey.x = (tr.r3.xmax + tr.r3.xmin)/2; 
-		    monkey.y = (tr.r3.ymax + tr.r3.ymin)/2 - 234; // Corregir esto
-		    monkey.width = 64;
-		    monkey.height = 64;
+			monkey = new Rectangle();
+			// El mono aparece en el centro de la región 3.
+			monkey.x = (tr.r3.xmax + tr.r3.xmin) / 2;
+			monkey.y = (tr.r3.ymax + tr.r3.ymin) / 2 - 234; // Corregir esto
+			monkey.width = 64;
+			monkey.height = 64;
 		}
 
 		void load() {
 
-		    camera.setToOrtho(false, 800, 480);
+			camera.setToOrtho(false, 800, 480);
 			am.load("test.png", Texture.class);
 			tex = new Texture(Gdx.files.internal("test.png"));
 		}
@@ -59,27 +60,26 @@ public class Assets {
 		}
 	}
 
-
 	public class AssetTree {
 		private OrthographicCamera camera;
 		SpriteBatch batch;
 		Texture tex;
-		Rectangle tree; // El rectángulo es el que se va a mover, la textura del mono va a estar dentro del rectángulo.
-		private TreeRegion tr;
-		
+		Rectangle tree; // Se mete la texture dentro de un rectángulo para
+						// facilitar su manipulación
+
 		public AssetTree() {
 			camera = new OrthographicCamera();
 			tr = new TreeRegion();
 			batch = new SpriteBatch();
-		    tree = new Rectangle();
-		    // El mono aparece en el centro de la región 3.
-		    tree.x = 32; 
-		    tree.y = 0; // Corregir esto
+			tree = new Rectangle();
+			tree.x = 32;
+			tree.y = 0;
 
 		}
+
 		void load() {
 
-		    camera.setToOrtho(false, 800, 480);
+			camera.setToOrtho(false, 800, 480);
 			tex = new Texture(Gdx.files.internal("tree.png"));
 		}
 
@@ -91,7 +91,5 @@ public class Assets {
 		}
 
 	}
-
-
 
 }

@@ -1,11 +1,11 @@
 package com.quasar.EvergreenJim;
 
+import Fruits.Lemon;
 import Regions.TreeRegion;
 import Regions.Region;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.GL10;
 
 public class MyGdxGame implements ApplicationListener{
@@ -14,12 +14,15 @@ public class MyGdxGame implements ApplicationListener{
 	boolean monkeyCanMoveToR1;
 	boolean monkeyCanMoveToR2;
 	boolean monkeyCanMoveToR3;
-
+	boolean canShot;
+	
 	
 	@Override
 	public void create() {		
 
 	    WorldRenderer.loadAssets();
+	    Monkey.init();
+	    Lemon.load();
 
 	}
 
@@ -37,44 +40,53 @@ public class MyGdxGame implements ApplicationListener{
 		Region tr2 = (Region) new TreeRegion().r2;
 		Region tr3 = (Region) new TreeRegion().r3;
 		
+		if (monkeyCanMoveToR1 == true)  {
+			Monkey.move(tr1);
+		}
+		if (monkeyCanMoveToR2 == true) {
+			Monkey.move(tr2);
+		}
+		if (monkeyCanMoveToR3 == true) {
+			Monkey.move(tr3);
+		}
+		
 			if(Tap.isInside(tr1)) {
+
+				System.out.println("Region 1");
 				monkeyCanMoveToR1 = true;
 				monkeyCanMoveToR2 = false;
 				monkeyCanMoveToR3 = false;
 		       
-				System.out.println("Region 1");
 					
 			} else if (Tap.isInside(tr2)) {
 
+				System.out.println("Region 2");
 				monkeyCanMoveToR2 = true;
 				monkeyCanMoveToR1 = false;
 				monkeyCanMoveToR3 = false;
-				System.out.println("Region 2");
 				
 			} else if (Tap.isInside(tr3)) {
 
+				System.out.println("Region 3");
 				monkeyCanMoveToR3 = true;
 				monkeyCanMoveToR1 = false;
-				monkeyCanMoveToR2 = false;
-				System.out.println("Region 3");
+				monkeyCanMoveToR2 = false; 
+			
+			} else if (Gdx.input.justTouched() && !(Tap.isInside(tr1) || Tap.isInside(tr2)
+					|| Tap.isInside(tr3))) {
+				
+				System.out.println("Tap outside");
+				Lemon.canCreateMore = true;
+				canShot = true;
 			}
 			
-			if (monkeyCanMoveToR1 == true)  {
-				Monkey.move(tr1);
-			}
-			if (monkeyCanMoveToR2 == true) {
-				Monkey.move(tr2);
-			}
-			if (monkeyCanMoveToR3 == true) {
-				Monkey.move(tr3);
+			// Se debe de controlar si se puede disparar o no, si no se condiciona lo hará por si solo
+			if(canShot) {
+				Monkey.shoot();
 			}
 			
 			 WorldRenderer.update();
 
-			 if(Gdx.input.isKeyPressed(Keys.A)) {
-				 System.out.println(Monkey.position);
-			 }
-			 
 	}
 
 	@Override
