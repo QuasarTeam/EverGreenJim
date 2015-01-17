@@ -48,7 +48,6 @@ public class Assets {
 		void load() {
 
 			camera.setToOrtho(false, 800, 480);
-			am.load("test.png", Texture.class);
 			tex = new Texture(Gdx.files.internal("test.png"));
 		}
 

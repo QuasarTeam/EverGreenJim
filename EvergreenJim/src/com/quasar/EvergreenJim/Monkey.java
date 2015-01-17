@@ -21,9 +21,8 @@ public class Monkey {
 
 		// Ejemplo: Si tr pertenece a la Region1 entonces ...
 		if (tr instanceof TreeRegion.Region1) {
-			if ((Assets.asm.monkey.y < Gdx.graphics.getHeight() + 50)) { // Modificar
-																			// coordenada,
-																			// 50??
+			if ((Assets.asm.monkey.y < Gdx.graphics.getHeight()
+					+ (Gdx.graphics.getHeight() / 3) - 64)) {
 				Assets.asm.monkey.y += Constants.MID_SPEED
 						* Gdx.graphics.getDeltaTime();
 			}
@@ -37,7 +36,7 @@ public class Monkey {
 						* Gdx.graphics.getDeltaTime();
 			}
 
-			if ((Assets.asm.monkey.y > (Gdx.graphics.getHeight() / 2 + 50))) {
+			if ((Assets.asm.monkey.y > (Gdx.graphics.getHeight() / 2 + 64))) {
 				Assets.asm.monkey.y -= Constants.MID_SPEED
 						* Gdx.graphics.getDeltaTime();
 			}
@@ -45,7 +44,7 @@ public class Monkey {
 		}
 
 		if (tr instanceof TreeRegion.Region3) {
-			if ((Assets.asm.monkey.y > Gdx.graphics.getWidth() / 15)) {
+			if ((Assets.asm.monkey.y > Gdx.graphics.getHeight() / 3 - 64)) {
 				Assets.asm.monkey.y -= Constants.MID_SPEED
 						* Gdx.graphics.getDeltaTime();
 			}

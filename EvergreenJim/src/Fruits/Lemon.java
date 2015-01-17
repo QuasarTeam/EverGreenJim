@@ -40,14 +40,15 @@ public class Lemon implements Fruit {
 
 	public static void render() {
 
-		// Render constante de todos los limones que estén en el array (array de LibGDX)
+		// Render constante de todos los limones que estén en el array (array de
+		// LibGDX)
 		batch.begin();
 		for (Rectangle lemon : lemons) {
 			batch.draw(lemonImage, lemon.x, lemon.y);
 		}
 		batch.end();
 
-		// Para producir sólo un limón por cada tap 
+		// Para producir sólo un limón por cada tap
 		if (canCreateMore) {
 			create(Monkey.getCurrentPosition());
 			canCreateMore = false;
