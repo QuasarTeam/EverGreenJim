@@ -11,35 +11,40 @@ import com.badlogic.gdx.utils.Array;
 import com.quasar.EvergreenJim.Constants;
 import com.quasar.EvergreenJim.Monkey;
 
-public class Lemon implements Fruit {
+public class Apple implements Fruit {
 
-	private static Texture lemonImage;
+	private static Texture appleImage;
 
 	public static boolean canCreateMore;
 	static double yVelocity;
 	private static SpriteBatch batch;
 	private static OrthographicCamera camera;
-	private static Array<Rectangle> lemons;
+	private static Array<Rectangle> apples;
 	public static boolean loaded;
+	public static double gravity;
 	public static double time;
-	public static boolean tapEnabled = true;
+	public static boolean tapEnabled;
 
 	public static void load() {
 		canCreateMore = true;
-		lemonImage = new Texture(Gdx.files.internal("lemon.png"));
+		appleImage = new Texture(Gdx.files.internal("apple.png"));
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 800, 480);
 		batch = new SpriteBatch();
-		lemons = new Array<Rectangle>();
+		apples = new Array<Rectangle>();
+		gravity = 1000.0f;
+		yVelocity = 1;
+		tapEnabled = true; // Al principio si se puede hacer tap para que se
+							// lanze una fruta
 	}
 
 	public static void create(float yPos) {
-		Rectangle lemon = new Rectangle();
-		lemon.x = 64;
-		lemon.y = yPos - 80;
-		lemon.width = 64;
-		lemon.height = 64;
-		lemons.add(lemon);
+		Rectangle apple = new Rectangle();
+		apple.x = 64;
+		apple.y = yPos - 80;
+		apple.width = 64;
+		apple.height = 64;
+		apples.add(apple);
 		time = Gdx.graphics.getDeltaTime();
 	}
 
@@ -48,34 +53,37 @@ public class Lemon implements Fruit {
 		// Render constante de todos los limones que estén en el array (array de
 		// LibGDX)
 		batch.begin();
-		for (Rectangle lemon : lemons) {
-			batch.draw(lemonImage, lemon.x, lemon.y);
+		for (Rectangle apple : apples) {
+			batch.draw(appleImage, apple.x, apple.y);
 
 		}
 		batch.end();
 
-		// Para producir sólo un limón por cada tap
+		// Para producir sólo un limón por cada tap.
 		if (canCreateMore) {
 			create(Monkey.getCurrentPosition());
 
 			canCreateMore = false;
 		}
-		
 
-		// Se recorre el array moviendo los limones (rectángulos) que tenga
-		Iterator<Rectangle> iter = lemons.iterator();
+		// Se recorre el array moviendo los limones (rectángulos) que tenga.
+		Iterator<Rectangle> iter = apples.iterator();
 		while (iter.hasNext()) {
-			Rectangle lemon = iter.next();
+			Rectangle apple = iter.next();
 
-			lemon.x += Constants.MAX_SPEED * time;
+			// x1 = x0 + v*t
+			apple.x += Constants.MAX_SPEED * time;
+			// y1 = y0 + v0 + g*t^2
+			yVelocity += gravity * time; // La velocidad tiene que ir aumentando
+			apple.y -= yVelocity * time; // para generar acceleracion.
+
 			tapEnabled = false; // Esto evita que se creen nuevas frutas
 								// mientras alguna está en el aire.
-
-			if (lemon.x + 64 > Gdx.graphics.getWidth()){
+			if (apple.y < 0) {
 				yVelocity = 1.0;
 				iter.remove();
 				tapEnabled = true;
-				
+
 			}
 		}
 	}

@@ -1,5 +1,7 @@
 package com.quasar.EvergreenJim;
 
+import Fruits.Apple;
+import Fruits.Fruit;
 import Fruits.Lemon;
 import Regions.Region;
 import Regions.TreeRegion;
@@ -52,8 +54,13 @@ public class Monkey {
 		}
 	}
 
-	public static void shoot() {
-		Lemon.render();
+	public static void shoot(Fruit f) {
+		if (f instanceof Lemon) {
+			Lemon.render();
+		}
+		if (f instanceof Apple) {
+			Apple.render();
+		}
 	}
 
 	public static float getCurrentPosition() {

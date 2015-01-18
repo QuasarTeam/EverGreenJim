@@ -1,8 +1,11 @@
 package com.quasar.EvergreenJim;
 
+import Fruits.Apple;
+import Fruits.Fruit;
 import Fruits.Lemon;
 import Regions.TreeRegion;
 import Regions.Region;
+
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
@@ -15,14 +18,20 @@ public class MyGdxGame implements ApplicationListener {
 	boolean monkeyCanMoveToR2;
 	boolean monkeyCanMoveToR3;
 	boolean canShoot;
+	Fruit selectedFruit;
+	Fruit apple = new Apple();
+	Fruit lemon = new Lemon();
 
 	@Override
 	public void create() {
 
+		// DEBUG
+		selectedFruit = apple;
+
 		WorldRenderer.loadAssets();
 		Monkey.init();
 		Lemon.load();
-
+		Apple.load();
 	}
 
 	@Override
@@ -72,18 +81,28 @@ public class MyGdxGame implements ApplicationListener {
 
 		} else if (Gdx.input.justTouched()
 				&& !(Tap.isInside(tr1) || Tap.isInside(tr2) || Tap
-						.isInside(tr3))) {
+						.isInside(tr3))
+				&& (selectedFruit == apple ? Apple.tapEnabled
+						: Lemon.tapEnabled)) { 
 
 			System.out.println("Tap outside");
-			Lemon.canCreateMore = true;
+			
+			if (selectedFruit == apple) {
+
+				Apple.canCreateMore = true;
+				
+			} else if (selectedFruit == lemon) {
+
+				Lemon.canCreateMore = true;
+			}
+
 			canShoot = true;
-			System.out.println(Gdx.graphics.getHeight() / 3);
 		}
 
 		// Se debe de controlar si se puede disparar o no, si no se condiciona
 		// lo hará por sí solo
 		if (canShoot) {
-			Monkey.shoot();
+			Monkey.shoot(selectedFruit);
 		}
 
 		WorldRenderer.update();
