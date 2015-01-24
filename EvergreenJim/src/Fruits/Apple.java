@@ -75,7 +75,8 @@ public class Apple implements Fruit {
 			apple.x += Constants.MAX_SPEED * time;
 			// y1 = y0 + v0 + g*t^2
 			yVelocity += gravity * time; // La velocidad tiene que ir aumentando
-			apple.y -= yVelocity * time; // para generar acceleracion.
+											// para generar acceleracion.
+			apple.y -= yVelocity * time; 
 
 			tapEnabled = false; // Esto evita que se creen nuevas frutas
 								// mientras alguna está en el aire.
