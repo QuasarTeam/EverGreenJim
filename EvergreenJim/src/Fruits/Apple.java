@@ -72,7 +72,7 @@ public class Apple implements Fruit {
 			Rectangle apple = iter.next();
 
 			// x1 = x0 + v*t
-			apple.x += Constants.MAX_SPEED * time;
+			apple.x += Constants.MID_SPEED * time;
 			// y1 = y0 + v0 + g*t^2
 			yVelocity += gravity * time; // La velocidad tiene que ir aumentando
 											// para generar acceleracion.

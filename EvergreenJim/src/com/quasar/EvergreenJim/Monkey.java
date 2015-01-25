@@ -1,6 +1,7 @@
 package com.quasar.EvergreenJim;
 
 import Fruits.Apple;
+import Fruits.Banana;
 import Fruits.Fruit;
 import Fruits.Lemon;
 import Regions.Region;
@@ -60,6 +61,9 @@ public class Monkey {
 		}
 		if (f instanceof Apple) {
 			Apple.render();
+		}
+		if(f instanceof Banana) {
+			Banana.render();
 		}
 	}
 

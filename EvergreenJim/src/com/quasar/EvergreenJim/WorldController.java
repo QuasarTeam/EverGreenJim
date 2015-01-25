@@ -1,14 +1,13 @@
 package com.quasar.EvergreenJim;
-import com.badlogic.gdx.Gdx;
-import com.quasar.EvergreenJim.Monkey;
-import com.quasar.EvergreenJim.Tap;
-import com.quasar.EvergreenJim.WorldRenderer;
 
 import Fruits.Apple;
+import Fruits.Banana;
 import Fruits.Fruit;
 import Fruits.Lemon;
 import Regions.Region;
 import Regions.TreeRegion;
+
+import com.badlogic.gdx.Gdx;
 
 public class WorldController {
 
@@ -19,15 +18,18 @@ public class WorldController {
 	static Fruit selectedFruit;
 	static Fruit apple = new Apple();
 	static Fruit lemon = new Lemon();
+	static Fruit banana = new Banana();
 
 	public static void create() {
 		// DEBUG
-		selectedFruit = lemon;
+		selectedFruit = apple;
 
+		
 		WorldRenderer.loadAssets();
 		Monkey.init();
 		Lemon.load();
 		Apple.load();
+		Banana.load();
 
 	}
 
@@ -70,24 +72,23 @@ public class WorldController {
 
 		} else if (Gdx.input.justTouched()
 				&& !(Tap.isInside(tr1) || Tap.isInside(tr2) || Tap
-						.isInside(tr3))
-				&& (selectedFruit == apple ? Apple.tapEnabled
-						: Lemon.tapEnabled)) {
+						.isInside(tr3))) {
 
 			System.out.println("Tap outside");
 
-			if (selectedFruit == apple) {
-
+			if (selectedFruit == apple && Apple.tapEnabled) {
 				Apple.canCreateMore = true;
 
-			} else if (selectedFruit == lemon) {
-
+			} else if (selectedFruit == lemon && Lemon.tapEnabled) {
 				Lemon.canCreateMore = true;
+
+			} else if (selectedFruit == banana && Banana.tapEnabled) {
+				Banana.canCreateMore = true;
 			}
 
 			canShoot = true;
 		}
-		
+
 	}
 
 	public static void shootingControl() {
